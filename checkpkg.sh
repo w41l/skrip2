@@ -17,9 +17,13 @@ else
 fi
 
 unset PKG FILE BINFILE PKGSUFFIX
-for PKGSUFFIX in ${PKGSUFFIXES}; do
-  ls -1 /var/log/packages/*${PKGSUFFIX} | sed '/kernel-/d' | sort -u | tee -a $PKGLISTTMP >/dev/null
-done
+if [ -z "$PKGSUFFIXES" ]; then
+  ls -1 /var/log/packages/* | sed '/kernel-/d' | sort -u | tee -a $PKGLISTTMP >/dev/null
+else
+  for PKGSUFFIX in ${PKGSUFFIXES}; do
+    ls -1 /var/log/packages/*${PKGSUFFIX} | sed '/kernel-/d' | sort -u | tee -a $PKGLISTTMP >/dev/null
+  done
+fi
 
 cat ${PKGLISTTMP} | while read PKG; do
   PKGTESTTMP="$(mktemp /tmp/checklib-test.XXXXXX)"
