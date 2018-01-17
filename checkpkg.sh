@@ -8,7 +8,6 @@ PKGUPGRADE="${HOME}/upgrade-rebuild-$(date +%Y%m%dT%H%M%S).txt"
 PKGMISSING="${HOME}/missing-files-$(date +%Y%m%dT%H%M%S).txt"
 
 PKGLISTTMP="$(mktemp /tmp/checklib-list.XXXXXX)"
-# PKGUPGRADETMP="$(mktemp /tmp/checklib-bin.XXXXXX)"
 
 ARCH=`uname -m`
 if [ "$ARCH" == "x86_64" ]; then
