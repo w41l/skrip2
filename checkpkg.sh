@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # CHANGE THIS!
-PKGSUFFIXES="SBo _wls"
+PKGSUFFIXES="_SBo"
 # END OF CHANGES
 
 PKGUPGRADE="${HOME}/upgrade-rebuild-$(date +%Y%m%dT%H%M%S).txt"
