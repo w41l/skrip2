@@ -55,5 +55,8 @@ cat ${PKGLISTTMP} | while read PKG; do
   rm -f $PKGTESTTMP
 done
 
+echo "Failed dependency list: $PKGUPGRADE"
+echo "Missing files list: $PKGMISSING"
+
 rm -f $PKGLISTTMP
 unset PKGSUFFIXES PKGSUFFIX PKG FILE BINFILE PKGLISTTMP PKGUPGRADETMP PKGMISSING PKGUPGRADE
